@@ -23,18 +23,21 @@ function deepStationCopy(station) {
     stationCopied.createdBy = JSON.parse(JSON.stringify(station.createdBy))
 }
 
-// query()
 async function query(filterBy = {}) {
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('station')
         const stations = await collection.find(criteria).toArray()
-        let stationsJSON = {}
-        _saveStationsToFile(stations)
-        // stations.map(station => {
-        //     console.log(JSON.parse(JSON.stringify(station.songs)))
-        //     deepStationCopy(station)
-        //     return 1
+        // stations.map(async station => {
+
+        //     station.createdBy = {
+        //         _id: 'u101',
+        //         fullname: 'app',
+        //         imgUrl: 'https://images.unsplash.com/photo-1634077562930-6d6bbbbef038?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80'
+        //     }
+        //     station.likedByUsers = []
+        //     await update(station)
+        //     return
         // })
         return stations
     } catch (err) {

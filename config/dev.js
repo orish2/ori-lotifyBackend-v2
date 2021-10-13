@@ -1,4 +1,4 @@
 module.exports = {
-  'dbURL': 'mongodb+srv://Nivivr:DVmywpKh5p0mdYkU@cluster0.mumec.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  'dbURL': 'mongodb+srv://ori:sharoni@cluster0.sgake.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 }
 

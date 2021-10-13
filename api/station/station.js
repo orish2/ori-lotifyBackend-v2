@@ -2092,11 +2092,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 27 */
-{
-    "_id": ObjectId("615af8a9cfae55b6949fe1c1"),
+  },
+  {
     "genre": "blues",
     "name": "Blues Music Playlist - Best Blues Songs of All Time",
     "tags": [
@@ -2175,11 +2172,8 @@
         "id": "6161ad02b80c7251385ad03a"
       }
     ]
-  }
-
-/* 28 */
-{
-    "_id": ObjectId("615af8c7cfae55b6949fe1c2"),
+  },
+  {
     "genre": "souls",
     "name": "souls of 2000",
     "tags": [
@@ -2252,11 +2246,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 29 */
-{
-    "_id": ObjectId("615af937cfae55b6949fe1c3"),
+  },
+  {
     "genre": "decade",
     "name": "Israel Houghton - Decade",
     "tags": [
@@ -2335,11 +2326,8 @@
         "duration": "PT4M47S"
       }
     ]
-  }
-
-/* 30 */
-{
-    "_id": ObjectId("615b0755cfae55b6949fe1c7"),
+  },
+  {
     "genre": "billie eilish",
     "name": "Billie Eilish - Happier Than Ever (Full Album)",
     "tags": [
@@ -2431,11 +2419,8 @@
         "id": "6161c7caaeadbe5919787ea0"
       }
     ]
-  }
-
-/* 31 */
-{
-    "_id": ObjectId("615b29c1cfae55b6949fe1c8"),
+  },
+  {
     "name": "nivaaa",
     "tags": [],
     "likedByUsers": [
@@ -2534,11 +2519,8 @@
         "duration": "PT3M55S"
       }
     ]
-  }
-
-/* 32 */
-{
-    "_id": ObjectId("615b2f3acfae55b6949fe1c9"),
+  },
+  {
     "genre": "kaleo",
     "name": "Top Tracks - KALEO",
     "tags": [
@@ -2630,11 +2612,8 @@
         "id": "615db9077171c4f834a47914"
       }
     ]
-  }
-
-/* 33 */
-{
-    "_id": ObjectId("615b32f1cfae55b6949fe1ca"),
+  },
+  {
     "genre": "גיא מזיג",
     "name": "גיא מזיג - כל השירים הגדולים ♫",
     "tags": [
@@ -2653,11 +2632,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 34 */
-{
-    "_id": ObjectId("615b3d4acfae55b6949fe1cd"),
+  },
+  {
     "genre": "donald glover",
     "name": "Awaken, My Love!",
     "tags": [
@@ -2762,11 +2738,8 @@
         "id": "61629b51fe07e20016dee8b0"
       }
     ]
-  }
-
-/* 35 */
-{
-    "_id": ObjectId("615b4102cfae55b6949fe1ce"),
+  },
+  {
     "genre": "post mal",
     "name": "Post Malone Playlist - The Best of Post Malone",
     "tags": [
@@ -2839,11 +2812,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 36 */
-{
-    "_id": ObjectId("615c025e5a382b15e8293024"),
+  },
+  {
     "genre": "pearl",
     "name": "Pearl Jam - The Avocado",
     "tags": [
@@ -2916,11 +2886,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 37 */
-{
-    "_id": ObjectId("615c148258821851f4a73cf4"),
+  },
+  {
     "genre": "Lana Del Rey - Live at Amoeba",
     "name": "Lana Del Rey",
     "tags": [
@@ -2999,11 +2966,8 @@
         "id": "615b1395706f019209666d5d"
       }
     ]
-  }
-
-/* 38 */
-{
-    "_id": ObjectId("615c1e4e706f019209abb7e5"),
+  },
+  {
     "genre": "likedTracks",
     "name": "Liked Songs",
     "tags": [],
@@ -3020,11 +2984,8 @@
         "id": "615db9077171c4f834a47914"
       }
     ]
-  }
-
-/* 39 */
-{
-    "_id": ObjectId("615c363b93c06cb0c8ab076e"),
+  },
+  {
     "genre": "beyonce",
     "name": "B E Y O N C É",
     "tags": [
@@ -3099,11 +3060,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 40 */
-{
-    "_id": ObjectId("615c39d193c06cb0c8ab0773"),
+  },
+  {
     "genre": "bob",
     "name": "Bob Marley",
     "tags": [
@@ -3184,11 +3142,8 @@
         "id": "615db9077171c4f834a47914"
       }
     ]
-  }
-
-/* 41 */
-{
-    "_id": ObjectId("615c3ae493c06cb0c8ab0774"),
+  },
+  {
     "genre": "hadar",
     "name": "Hadar",
     "tags": [
@@ -3261,11 +3216,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 42 */
-{
-    "_id": ObjectId("615c5b2f93c06cb0c8ab077b"),
+  },
+  {
     "genre": "fulltrack",
     "name": "Fulltrack",
     "tags": [
@@ -3320,11 +3272,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 43 */
-{
-    "_id": ObjectId("615c5fb893c06cb0c8ab077e"),
+  },
+  {
     "name": "niv",
     "tags": [],
     "likedByUsers": [],
@@ -3366,11 +3315,8 @@
         "duration": "PT3M27S"
       }
     ]
-  }
-
-/* 44 */
-{
-    "_id": ObjectId("615c62bad9edaf5aa87aff3b"),
+  },
+  {
     "genre": "twenty one pilots",
     "name": "Twenty One Pilots Scaled and Icy Full Album",
     "tags": [
@@ -3455,11 +3401,8 @@
         "duration": "PT4M41S"
       }
     ]
-  }
-
-/* 45 */
-{
-    "_id": ObjectId("615c6381d9edaf5aa87aff3c"),
+  },
+  {
     "genre": "nirvana",
     "name": "Nirvana - Best Of (Greatest Hits)",
     "tags": [
@@ -3532,11 +3475,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 46 */
-{
-    "_id": ObjectId("615c639cd9edaf5aa87aff3d"),
+  },
+  {
     "genre": "blink 182",
     "name": "Blink-182 Greatest Hits",
     "tags": [
@@ -3609,11 +3549,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 47 */
-{
-    "_id": ObjectId("615c63e7d30b8c2fe4a9d4d8"),
+  },
+  {
     "genre": "ariana grande",
     "name": "Ariana Grande - All Songs",
     "tags": [
@@ -3693,11 +3630,8 @@
         "id": "615db9077171c4f834a47914"
       }
     ]
-  }
-
-/* 48 */
-{
-    "_id": ObjectId("615d44d5a14fbad8a052c552"),
+  },
+  {
     "genre": "taylor swift",
     "name": "All Taylor Swift Songs",
     "tags": [
@@ -3770,11 +3704,8 @@
         "duration": "PT4M26S"
       }
     ]
-  }
-
-/* 49 */
-{
-    "_id": ObjectId("615d5551f00fe6575c7a7c61"),
+  },
+  {
     "name": "Programing music",
     "tags": [
       "alternative",
@@ -4029,11 +3960,8 @@
       "id": "615b1ac357902a50aca02aef",
       "fullname": "Ethan Georlette"
     }
-  }
-
-/* 50 */
-{
-    "_id": ObjectId("615d6e30e72859d72811184b"),
+  },
+  {
     "name": "aa",
     "tags": [
       "pop",

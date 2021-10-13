@@ -17,12 +17,21 @@ async function query(filterBy = {}) {
     try {
         const collection = await dbService.getCollection('user')
         var users = await collection.find(criteria).toArray()
-        users = users.map(user => {
+        users = users.map(async user => {
             delete user.password
             user.createdAt = ObjectId(user._id).getTimestamp()
+            return user
+
+            // user.likedTracks = []
+            // user.likedStations = []
+            // user.recentlyPlayedStations = []
+            // user.recentlyPlayedSongs = []
+            // user.following = []
+            // if (!user.userPref) user.userPref = []
+
             // Returning fake fresh data
             // user.createdAt = Date.now() - (1000 * 60 * 60 * 24 * 3) // 3 days ago
-            return user
+            // await update(user)
         })
         return users
     } catch (err) {

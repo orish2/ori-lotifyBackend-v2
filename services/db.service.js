@@ -7,8 +7,8 @@ module.exports = {
 }
 
 // Database Name
-const dbName = 'lotify_db'
-// const dbName = 'LOTIFY_DB'
+// const dbName = 'lotify_db'
+const dbName = 'LOTIFY_DB'
 
 var dbConn = null
 
