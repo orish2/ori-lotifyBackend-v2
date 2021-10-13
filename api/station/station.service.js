@@ -3,19 +3,47 @@ const ObjectId = require('mongodb').ObjectId
 const asyncLocalStorage = require('../../services/als.service')
 const logger = require('../../services/logger.service')
 const userService = require('../user/user.service')
+var gStations = require('../../data/stations.json')
 
+const fs = require('fs')
 
+function _saveStationsToFile(newStations) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('../../data/stations.json', JSON.stringify(newStations, null, 2), (err) => {
+            if (err) return reject(err)
+            resolve();
+        })
+    })
+}
+
+function deepStationCopy(station) {
+    let stationCopied = { ...station }
+    console.log(json.createdBy);
+    return
+    stationCopied.createdBy = JSON.parse(JSON.stringify(station.createdBy))
+}
+
+// query()
 async function query(filterBy = {}) {
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('station')
         const stations = await collection.find(criteria).toArray()
+        let stationsJSON = {}
+        _saveStationsToFile(stations)
+        // stations.map(station => {
+        //     console.log(JSON.parse(JSON.stringify(station.songs)))
+        //     deepStationCopy(station)
+        //     return 1
+        // })
         return stations
     } catch (err) {
         logger.error('cannot find station', err)
         throw err
     }
 }
+
+
 
 //async function remove(stationId) {
 //    try {
@@ -33,13 +61,13 @@ async function query(filterBy = {}) {
 //}
 
 
-async function add(station,user) {
+async function add(station, user) {
     try {
-      let  stationToAdd = {
+        let stationToAdd = {
             ...station
-            ,createdBy:{
-                id:user._id,
-                fullname:user.fullname,
+            , createdBy: {
+                id: user._id,
+                fullname: user.fullname,
             }
         }
 
@@ -111,8 +139,8 @@ async function getByUser(userId) {
         stations = await Promise.all(stations)
 
         createdStation = await collection.find({ 'createdBy.id': (userId) }).toArray()
-        likedStation = await collection.findOne({ 'genre':"likedTracks" })
-        stations= stations.concat(createdStation)
+        likedStation = await collection.findOne({ 'genre': "likedTracks" })
+        stations = stations.concat(createdStation)
         stations.push(likedStation)
         return stations
     }
