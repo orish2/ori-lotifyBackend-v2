@@ -5,7 +5,7 @@ const logger = require('../../services/logger.service')
 async function getUser(req, res) {
     try {
         const user = await userService.getById(req.params.id)
-       
+
         res.send(user)
     } catch (err) {
         logger.error('Failed to get user', err)
@@ -16,11 +16,13 @@ async function getUser(req, res) {
 
 async function getUsers(req, res) {
     try {
-        console.log(req.query,'req.query');
-        const filterBy = {
-            txt: req.query?.filterBy || '',
-        }
-        const users = await userService.query(filterBy)
+        // console.log(req.query,'req.query');
+        // console.log('req', req.params)
+        // return
+        // const filterBy = {
+        //     txt: req.query?.filterBy || '',
+        // }
+        const users = await userService.query(req.params)
         res.send(users)
     } catch (err) {
         logger.error('Failed to get users', err)
