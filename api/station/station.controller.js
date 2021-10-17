@@ -57,10 +57,14 @@ async function getStationByGenre(req, res) {
     }
 }
 
+// here!
 async function getStationsByUser(req, res) {
     try {
-        let stations = await stationService.getByUser(req.params.userId)
-        stations=stations.filter((station)=>station)
+        const userId = req.params.userId
+        console.log('userId', userId);
+        // let stations = await stationService.getByUser(req.params.userId)
+        let stations = await stationService.getByUser(userId)
+        stations = stations.filter((station) => station)
         res.send(stations)
     } catch (err) {
         logger.error('Failed to get station', err)
@@ -72,9 +76,9 @@ async function getStationsByUser(req, res) {
 async function addStation(req, res) {
     try {
         console.log(req.session);
-        const user=req.session.user
+        const user = req.session.user
         var station = req.body
-        station = await stationService.add(station,user)
+        station = await stationService.add(station, user)
         res.send(station)
         // Give the user credit for adding a station
         //socketService.broadcast({ type: 'station-added', data: station, userId: station.byUserId })
@@ -92,7 +96,7 @@ async function addStation(req, res) {
 async function updateStation(req, res) {
     try {
         var station = req.body;
-         station = await stationService.update(station)
+        station = await stationService.update(station)
         res.send(station)
     } catch (err) {
         logger.error('Failed to get station', err)

@@ -1,7 +1,7 @@
 const express = require('express')
 const { requireAuth, requireAdmin } = require('../../middlewares/requireAuth.middleware')
 const { log } = require('../../middlewares/logger.middleware')
-const { getStations, addStation, updateStation, getStationByGenre, getStationById, getStationsByUser, getGoodDayStations,getHotStations } = require('./station.controller')
+const { getStations, addStation, updateStation, getStationByGenre, getStationById, getStationsByUser, getGoodDayStations, getHotStations } = require('./station.controller')
 const router = express.Router()
 
 // middleware that is specific to this router

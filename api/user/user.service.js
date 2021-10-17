@@ -17,9 +17,11 @@ async function query(filterBy = {}) {
     try {
         const collection = await dbService.getCollection('user')
         var users = await collection.find(criteria).toArray()
-        users = users.map(async user => {
+        console.log('users backend', users);
+        users = users.map(user => {
             delete user.password
             user.createdAt = ObjectId(user._id).getTimestamp()
+
             return user
 
             // user.likedTracks = []

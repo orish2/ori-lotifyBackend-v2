@@ -84,10 +84,12 @@ async function add(station, user) {
 }
 
 async function getById(stationId) {
+    // console.log('getting stations by id', stationId);
     let station
     try {
         const collection = await dbService.getCollection('station')
         station = await collection.findOne({ '_id': ObjectId(stationId) })
+        // console.log('station is ', station);
         return station
     }
     catch (err) {
@@ -134,13 +136,20 @@ async function getHotStations() {
 
 async function getByUser(userId) {
     try {
+        // console.log('userId', userId);
         let user = await userService.getById(userId)
+        // console.log('user', user);
         const collection = await dbService.getCollection('station')
+        console.log('here!!!!!!');
+        // let stations = []
+        // console.log('user liked', user.likedStations);
+        // console.log('stationsssss', stations);
         let stations = user.likedStations.map(async stationId => {
+            console.log('stationId', stationId);
             return await getById(stationId)
         })
         stations = await Promise.all(stations)
-
+        // console.log('STATIONS', stations);
         createdStation = await collection.find({ 'createdBy.id': (userId) }).toArray()
         likedStation = await collection.findOne({ 'genre': "likedTracks" })
         stations = stations.concat(createdStation)
@@ -178,8 +187,29 @@ function _buildCriteria(filterBy) {
     return criteria
 }
 
-
-
+// doStaff()
+// async function doStaff() {
+//     console.log('doing staff');
+//     try {
+//         const collection = await dbService.getCollection('station')
+//         const stations = await collection.find({}).toArray()
+//         // console.log('stations', stations);
+//         stations.forEach(station => {
+//             if (station.createdBy._id) {
+//                 // console.log('_id');
+//                 const id = station.createdBy._id
+//                 // console.log('id', id);
+//                 station.createdBy.id = id
+//                 delete station.createdBy._id
+//                 update(station)
+//             }
+//         });
+//         // return db
+//     } catch (err) {
+//         // logger.error('Cannot Connect to DB', err)
+//         throw err
+//     }
+// }
 
 module.exports = {
     query,
