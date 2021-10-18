@@ -39,7 +39,14 @@ async function getHotStations(req, res) {
 
 async function getStationById(req, res) {
     try {
-        const station = await stationService.getById(req.params.stationId)
+        const { stationId } = req.params
+        let station
+        if (stationId.length < 24) {
+            station = await stationService.getByGenre(stationId)
+        } else {
+            station = await stationService.getById(req.params.stationId)
+        }
+
         res.send(station)
     } catch (err) {
         logger.error('Failed to get station', err)
@@ -61,10 +68,8 @@ async function getStationByGenre(req, res) {
 async function getStationsByUser(req, res) {
     try {
         const userId = req.params.userId
-        console.log('userId', userId);
-        // let stations = await stationService.getByUser(req.params.userId)
         let stations = await stationService.getByUser(userId)
-        stations = stations.filter((station) => station)
+        // stations = stations.filter((station) => station)
         res.send(stations)
     } catch (err) {
         logger.error('Failed to get station', err)
@@ -80,10 +85,6 @@ async function addStation(req, res) {
         var station = req.body
         station = await stationService.add(station, user)
         res.send(station)
-        // Give the user credit for adding a station
-        //socketService.broadcast({ type: 'station-added', data: station, userId: station.byUserId })
-        //socketService.emitToUser({ type: 'station-about-you', data: station, userId: station.aboutUserId })
-        //socketService.emitTo({ type: 'user-updated', data: fullUser, label: fullUser._id })
 
     } catch (err) {
         console.log(err)

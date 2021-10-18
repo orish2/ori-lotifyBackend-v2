@@ -16,29 +16,12 @@ function _saveStationsToFile(newStations) {
     })
 }
 
-function deepStationCopy(station) {
-    let stationCopied = { ...station }
-    console.log(json.createdBy);
-    return
-    stationCopied.createdBy = JSON.parse(JSON.stringify(station.createdBy))
-}
 
 async function query(filterBy = {}) {
     try {
         const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('station')
         const stations = await collection.find(criteria).toArray()
-        // stations.map(async station => {
-
-        //     station.createdBy = {
-        //         _id: 'u101',
-        //         fullname: 'app',
-        //         imgUrl: 'https://images.unsplash.com/photo-1634077562930-6d6bbbbef038?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80'
-        //     }
-        //     station.likedByUsers = []
-        //     await update(station)
-        //     return
-        // })
         return stations
     } catch (err) {
         logger.error('cannot find station', err)
@@ -84,12 +67,12 @@ async function add(station, user) {
 }
 
 async function getById(stationId) {
-    // console.log('getting stations by id', stationId);
     let station
     try {
         const collection = await dbService.getCollection('station')
         station = await collection.findOne({ '_id': ObjectId(stationId) })
-        // console.log('station is ', station);
+        console.log('stattionId', stationId);
+        // console.log('sstation is a', station);
         return station
     }
     catch (err) {
@@ -98,6 +81,7 @@ async function getById(stationId) {
     }
 }
 async function getByGenre(stationId) {
+    console.log('stationid', stationId);
     let station
     try {
         const collection = await dbService.getCollection('station')
@@ -136,24 +120,18 @@ async function getHotStations() {
 
 async function getByUser(userId) {
     try {
-        // console.log('userId', userId);
         let user = await userService.getById(userId)
-        // console.log('user', user);
         const collection = await dbService.getCollection('station')
-        console.log('here!!!!!!');
-        // let stations = []
-        // console.log('user liked', user.likedStations);
-        // console.log('stationsssss', stations);
+        // console.log('user likedStations', user.likedStations);
         let stations = user.likedStations.map(async stationId => {
-            console.log('stationId', stationId);
             return await getById(stationId)
         })
         stations = await Promise.all(stations)
-        // console.log('STATIONS', stations);
         createdStation = await collection.find({ 'createdBy.id': (userId) }).toArray()
         likedStation = await collection.findOne({ 'genre': "likedTracks" })
         stations = stations.concat(createdStation)
         stations.push(likedStation)
+        // console.log('stations stations', stations);
         return stations
     }
     catch (err) {
@@ -182,34 +160,10 @@ function _buildCriteria(filterBy) {
     if (filterBy.keySearch) {
         const txtCriteria = { $regex: filterBy.keySearch, $options: 'i' }
         criteria = { name: txtCriteria }
-        //criteria = { $or: [{ name: { txtCriteria } }, { $in: { tags: { txtCriteria } } }] }
     }
     return criteria
 }
 
-// doStaff()
-// async function doStaff() {
-//     console.log('doing staff');
-//     try {
-//         const collection = await dbService.getCollection('station')
-//         const stations = await collection.find({}).toArray()
-//         // console.log('stations', stations);
-//         stations.forEach(station => {
-//             if (station.createdBy._id) {
-//                 // console.log('_id');
-//                 const id = station.createdBy._id
-//                 // console.log('id', id);
-//                 station.createdBy.id = id
-//                 delete station.createdBy._id
-//                 update(station)
-//             }
-//         });
-//         // return db
-//     } catch (err) {
-//         // logger.error('Cannot Connect to DB', err)
-//         throw err
-//     }
-// }
 
 module.exports = {
     query,

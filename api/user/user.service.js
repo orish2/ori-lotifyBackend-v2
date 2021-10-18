@@ -17,23 +17,11 @@ async function query(filterBy = {}) {
     try {
         const collection = await dbService.getCollection('user')
         var users = await collection.find(criteria).toArray()
-        console.log('users backend', users);
         users = users.map(user => {
             delete user.password
             user.createdAt = ObjectId(user._id).getTimestamp()
 
             return user
-
-            // user.likedTracks = []
-            // user.likedStations = []
-            // user.recentlyPlayedStations = []
-            // user.recentlyPlayedSongs = []
-            // user.following = []
-            // if (!user.userPref) user.userPref = []
-
-            // Returning fake fresh data
-            // user.createdAt = Date.now() - (1000 * 60 * 60 * 24 * 3) // 3 days ago
-            // await update(user)
         })
         return users
     } catch (err) {
@@ -90,58 +78,6 @@ async function update(user) {
     }
 }
 
-// Ori - Capitalize userPref Artists Name:
-
-// capitalizeFullName('ori sharon')
-// function capitalizeFullName(fullname) {
-//     return fullname.split(' ').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')
-// }
-
-// function capitalizeSigleUserPref(userPref) {
-//     if (!userPref) return
-//     return userPref.map(pref => {
-//         newPref = { ...pref }
-//         newPref.artist = capitalizeFullName(newPref.artist)
-//         return newPref
-//     })
-// }
-
-
-// TODO:
-// capitalizeUsersPref()
-// DONE!!!
-// async function capitalizeUsersPref() {
-//     try {
-//         const collection = await dbService.getCollection('user')
-//         const users = await collection.find().toArray()
-//         // const users = await collection.find({ 'username': 'orisharonn@gmail.com' }).toArray()
-//         // const users = await collection.find({ 'username': 'EthanGeo' }).toArray()
-//         console.log('users', users);
-//         // return
-//         const updatedUsers = users.map(user => {
-//             newUser = { ...user }
-//             newUser.userPref = capitalizeSigleUserPref(newUser.userPref)
-//             return newUser
-//         })
-//         updatedUsers.forEach(async user => {
-//             console.log('userUpdated', user);
-//             await update(user)
-//         })
-
-//     }
-//     catch (err) {
-//         console.log('err capitalizing', err);
-//     }
-// }
-
-
-
-
-// username: null,
-// password: null,
-// fullname: null,
-// facebookUserId: null,
-// facebookImg: null
 async function add(user) {
     try {
         let userToAdd = {
@@ -185,9 +121,6 @@ function _buildCriteria(filterBy) {
             }
         ]
     }
-    //if (filterBy.minBalance) {
-    //    criteria.balance = { $gte: filterBy.minBalance }
-    //}
     return criteria
 }
 

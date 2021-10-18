@@ -37,13 +37,13 @@ function connectSockets(http, session) {
         })
 
         socket.on('play track', ({ track, user }) => {
-            console.log('Emitting track', track, user);
+            // console.log('Emitting track', track, user);
             //allTrack.push(track)
             gIo.emit('user track', { track, user })
         })
 
         socket.on('add like', ({ userIdliked, currUser, stationName }) => {
-           
+
             if (userIdliked === '615b1395706f019209666d5d') return
             if (userIdliked === currUser._id) return
             let obj = { username: currUser.username, stationName: stationName };
