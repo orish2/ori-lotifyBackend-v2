@@ -71,8 +71,6 @@ async function getById(stationId) {
     try {
         const collection = await dbService.getCollection('station')
         station = await collection.findOne({ '_id': ObjectId(stationId) })
-        console.log('stattionId', stationId);
-        // console.log('sstation is a', station);
         return station
     }
     catch (err) {
@@ -81,7 +79,6 @@ async function getById(stationId) {
     }
 }
 async function getByGenre(stationId) {
-    console.log('stationid', stationId);
     let station
     try {
         const collection = await dbService.getCollection('station')
